@@ -26,15 +26,11 @@ def on_drag_motion(event):
 
 # Erstelle ein Fenster
 fenster = tk.Tk()
-
-# Setze den Hintergrund des Fensters auf schwar
 fenster.configure(bg='black')
-
-# Setze den Fenstertitel
 fenster.title("Ishizakis Location Tracker")
 
 # Define the base path for the images
-base_path = r"C:\Users\Kevin Hiemann\Desktop\Entwicklungen\Tracker_Ishizaki\images"
+base_path = os.path.join(os.path.dirname(__file__), 'images')
 
 # Create a menu bar
 menubar = tk.Menu(fenster)
@@ -54,7 +50,7 @@ main_frame = tk.Frame(fenster, bg='black')
 main_frame.pack(fill='both', expand=True, padx=10, pady=10)
 
 # Add 4 additional columns with the Gossip Stone image
-gossip_image_path = r"C:\Users\Kevin Hiemann\Desktop\Entwicklungen\Tracker_Ishizaki\images\Miscellaneous\Gossip-Stone.png"
+gossip_image_path = os.path.join(base_path, 'Miscellaneous', 'Gossip-Stone.png')
 gossip_img = Image.open(gossip_image_path)
 gossip_img = gossip_img.resize((30, 30), Image.LANCZOS)  # Resize the image to 30x30 pixels
 gossip_photo = ImageTk.PhotoImage(gossip_img)
