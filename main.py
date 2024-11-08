@@ -55,7 +55,6 @@ gossip_img = Image.open(gossip_image_path)
 gossip_img = gossip_img.resize((30, 30), Image.LANCZOS)  # Resize the image to 30x30 pixels
 gossip_photo = ImageTk.PhotoImage(gossip_img)
 
-# Add labels to the first frame
 for row in range(18):
     for col in range(1):
         label = tk.Label(main_frame, text=f"{orte[row]}", font=("Helvetica", 12), bg='black', fg='white')
@@ -78,9 +77,6 @@ for row in range(18):
         label = tk.Label(main_frame, image=gossip_photo, bg='black')
         label.image = gossip_photo  # Keep a reference to avoid garbage collection
         label.grid(row=row, column=col, padx=1, pady=1)
-
-    # Add empty labels to create 4 columns of 50x50 between the two label rows
-    # Load and display images in a grid in the main window
 
 row = 0
 col = 0
