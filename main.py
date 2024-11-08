@@ -27,7 +27,7 @@ def on_drag_motion(event):
 # Erstelle ein Fenster
 fenster = tk.Tk()
 
-# Setze den Hintergrund des Fensters auf schwarz
+# Setze den Hintergrund des Fensters auf schwar
 fenster.configure(bg='black')
 
 # Setze den Fenstertitel
