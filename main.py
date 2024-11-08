@@ -23,11 +23,12 @@ def on_drag_motion(event):
     x = widget.winfo_x() - widget._drag_data["x"] + event.x
     y = widget.winfo_y() - widget._drag_data["y"] + event.y
     widget.place(x=x, y=y)
-
+    
 # Erstelle ein Fenster
 fenster = tk.Tk()
 fenster.configure(bg='black')
 fenster.title("Ishizakis Location Tracker")
+fenster.resizable(False, False)  # Prevent the window from being resized
 
 # Define the base path for the images
 base_path = os.path.join(os.path.dirname(__file__), 'images')
@@ -52,7 +53,7 @@ main_frame.pack(fill='both', expand=True, padx=10, pady=10)
 # Add 4 additional columns with the Gossip Stone image
 gossip_image_path = os.path.join(base_path, 'Miscellaneous', 'Gossip-Stone.png')
 gossip_img = Image.open(gossip_image_path)
-gossip_img = gossip_img.resize((30, 30), Image.LANCZOS)  # Resize the image to 30x30 pixels
+gossip_img = gossip_img.resize((20, 20), Image.LANCZOS)  # Resize the image to 30x30 pixels
 gossip_photo = ImageTk.PhotoImage(gossip_img)
 
 for row in range(18):
@@ -83,7 +84,7 @@ col = 0
 
 for item, image_path in item_images.items():
     img = Image.open(image_path)
-    img = img.resize((30, 30), Image.LANCZOS)  # Resize the image to 30x30 pixels
+    img = img.resize((20, 20), Image.LANCZOS)  # Resize the image to 30x30 pixels
     photo = ImageTk.PhotoImage(img)
     label = tk.Label(main_frame, image=photo, bg='black')
     label.image = photo  # Keep a reference to avoid garbage collection
@@ -99,7 +100,7 @@ for widget in main_frame.winfo_children():
         widget.bind("<Button-1>", on_drag_start)
         widget.bind("<B1-Motion>", on_drag_motion)
 
-fenster.geometry("600x700")
+fenster.geometry("500x650")
 
 # Starte die Hauptereignisschleife
 fenster.mainloop()
